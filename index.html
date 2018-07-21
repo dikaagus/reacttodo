@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>TodoList</title>
+</head>
+<body>
+<h1>Daftar Makanan</h1>
+<input id ="input-makanan" placeholder="Masukkan Nama"/>
+<button id ="button-makanan">Tambah</button>
+<ol id ="list-makanan">
+</ol>
+
+<script> 
+const inputDOM = document.getElementById('input-makanan')
+const buttonDOM = document.getElementById('button-makanan')
+const listDOM = document.getElementById('list-makanan')
+
+listDOM.innerHTML = localStorage.getItem('data');
+
+buttonDOM.addEventListener('click', function () {
+    const makanan = inputDOM.value;
+    listDOM.innerHTML = listDOM.innerHTML + "<li>" + makanan + "</li>"
+    inputDOM.value = "";
+    localStorage.setItem('data', listDOM.innerHTML);
+    })
+
+</script>
+
+</body>
+</html>
